@@ -7,7 +7,7 @@ super();
 this.state = {
 resultText: "",
 calculationText: ""};
-this.operations = ['DEL', 'Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday'];
+this.operations = ['DEL', '+', '-', 'X', '/'];
 }
 
 calculationResult() {
@@ -22,16 +22,13 @@ validate()
 {
   const text=this.state.resultText
   switch(text.slice(-1)){
-      case 'Monday':
+      case '+':
 
-      case 'Tuesday':
+      case '-':
 
-      case 'Wednesday':
+      case 'X':
 
-      case 'Thursday':
-      
-      case 'Friday':
-        
+      case '/':
       return false
       }
       return true
@@ -60,15 +57,13 @@ operate(operation) {
             resultText: text.join('')
           });
         break
-        case 'Monday':
+        case '+':
 
-        case 'Tuesday':
+        case '-':
 
-        case 'Wednesday':
+        case 'X':
 
-        case 'Thursday':
-
-        case 'Friday':
+        case '/':
 
         const lastChar=this.state.resultText.split( ).pop()
 
@@ -84,21 +79,21 @@ operate(operation) {
 
 render() {
     let rows = [];
-    let days = [["Monday"], ["Tuesday"], ["Wednesday"], ["Thursday"], ["Friday"]];
+    let nums = [[1, 2, 3], [4, 5, 6], [7, 8, 9], ['.', 0, '=']];
     for (let i = 0; i < 4; i++) {
-      let row = [];
-      for (let j = 0; j < 1; j++) {
-        row.push(
-        <TouchableOpacity
-        key={days[i][j]}
-        style={styles.btn}
-        onPress={() => this.onPressButton(days[i][j])}
-        >
-        <Text style={styles.btnText}>{days[i][j]}</Text>
-        </TouchableOpacity>
-        );
-      }
-      rows.push(<View key={i} style={styles.row}>{row}</View>);
+    let row = [];
+    for (let j = 0; j < 3; j++) {
+      row.push(
+      <TouchableOpacity
+      key={nums[i][j]}
+      style={styles.btn}
+      onPress={() => this.onPressButton(nums[i][j])}
+      >
+      <Text style={styles.btnText}>{nums[i][j]}</Text>
+      </TouchableOpacity>
+      );                                        
+    }
+    rows.push(<View key={i} style={styles.row}>{row}</View>);
     }
 
     let ops = [];
