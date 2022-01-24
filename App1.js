@@ -108,7 +108,7 @@ render() {
       </Text>
       </TouchableOpacity>
       );
-    }
+    } App
 
     return (
         <View style={styles.container}>

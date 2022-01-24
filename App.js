@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
       btnText: {
         fontSize: 45,
         color: 'lightblue'
-      },
+      }, 
       white: {
         color: 'orange'
       },
